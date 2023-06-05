@@ -1,0 +1,17 @@
+<div class="container" style="max-width: 500px; margin-top: 50px">
+    <div class="row">
+        <div class="col-xs-10">
+            <input type="text" class="form-control" [(ngModel)]="data">
+        </div>
+        <div class="col-xs-2">
+            <button class="btn btn-primary" [disabled]="!checkData()" #btnAdd><i class="bi bi-plus-circle"
+                    style="font-size: 16px" (click)="addData(btnAdd)"></i></button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="list-group" style="margin-top: 30px">
+            <app-content-child *ngFor="let todo of todoList; let i = index" [todo]="todo" [index]="i"
+                (delete)="delData($event)"></app-content-child>
+        </div>
+    </div>
+</div>
